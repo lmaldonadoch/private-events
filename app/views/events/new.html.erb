@@ -1,10 +1,5 @@
 <h1> Events </h1>
 <%= form_for(@event) do |f| %>
-  <ul>
- <% @user.errors.full_messages.each do |error| %>
-   <li><%= error %></li>
- <% end %>
- </ul>
  <%= f.label :description, 'Adding Description' %> <br>
  <%= f.text_field :description %> <br> <br>
  <br>

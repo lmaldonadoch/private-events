@@ -5,7 +5,6 @@ class UsersController < ApplicationController
     if session[:current_user_id].nil?
       @user = User.new
     else
-      p 'IN ELSE!!!!!'
       @user = User.find(session[:current_user_id])
     end
   end
