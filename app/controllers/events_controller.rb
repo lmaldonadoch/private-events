@@ -3,8 +3,8 @@ class EventsController < ApplicationController
     @event = Event.new
 	end
   def create
-    @event = Event.new(event_params)
-    @event.creator_id = session[:current_user_id]
+    current_user = User.find(session[:current_user_id])
+    @event = current_user.events.build(event_params)
     @event.date = 'Tomorrow'
     if @event.save
       redirect_to user_path(session[:current_user_id])

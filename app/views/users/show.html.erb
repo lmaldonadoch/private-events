@@ -2,7 +2,7 @@
   <% if @user.events.any? %>
 	<h3>Events created</h3>
 	<% @user.events.each do |event| %>
-	 <%= event.description %>
+	 <%= event.description %> <br>
 	<%end%>
   <%else%>
 	h3>Events were not created</h3>
