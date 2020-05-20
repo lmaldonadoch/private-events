@@ -1,0 +1,20 @@
+<h1> Events </h1>
+<%= form_for(@event) do |f| %>
+  <ul>
+ <% @user.errors.full_messages.each do |error| %>
+   <li><%= error %></li>
+ <% end %>
+ </ul>
+ <%= f.label :description, 'Adding Description' %> <br>
+ <%= f.text_field :description %> <br> <br>
+ <br>
+ <br>
+ <%= f.submit %>
+ 
+ <p class="flash"><%= flash.notice %></p>
+ 
+<%end%>
+
+ <%= link_to "Sign in", sign_in_path%>
+
+ <%= link_to "Sign out", sign_out_path%>

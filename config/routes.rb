@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   root to: "users#new"
 
   resources :users
-
   get '/sign_in', to: 'users#sign_in_form'
   post '/sign_in', to: 'users#sign_in'
   get '/sign_out', to: 'users#sign_out'
+
+  resources :events, only: [:new,:create,:show,:index]
 end
