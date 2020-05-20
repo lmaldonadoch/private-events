@@ -1,15 +1,15 @@
-<h1>Create a nuew user</h1>
+<h1>Create a new user</h1>
 
-<%= @users.find(session[:current_user_id]).name%>
+<%= @users.find(session[:current_user_id]).name unless session[:current_user_id].nil? %>
 
-<%= form_for @user do |f| %>
+<%= form_for(@user) do |f| %>
  
  <ul>
  <% @user.errors.full_messages.each do |error| %>
    <li><%= error %></li>
  <% end %>
  </ul>
- <%= f.label :name, 'Your Uername here' %> <br>
+ <%= f.label :name, 'Your Username here' %> <br>
  <%= f.text_field :name %> <br> <br>
  <%= f.label :email %> <br>
  <%= f.email_field :email%> <br><br>
@@ -21,4 +21,6 @@
  
 <%end%>
 
- <%= lint_to "Sign in", signin_path%>
+ <%= link_to "Sign in", sign_in_path%>
+
+ <%= link_to "Sign out", sign_out_path%>
