@@ -1,0 +1,22 @@
+<h1>Create a nuew user</h1>
+
+<%= form_for @user do |f| %>
+ 
+ <ul>
+ <% @user.errors.full_messages.each do |error| %>
+   <li><%= error %></li>
+ <% end %>
+ </ul>
+ <%= f.label :name, 'Your Uername here' %> <br>
+ <%= f.text_field :name %> <br> <br>
+ <%= f.label :email %> <br>
+ <%= f.email_field :email%> <br><br>
+ <br>
+ <br>
+ <%= f.submit %>
+ 
+ <p class="flash"><%= flash.notice %></p>
+ 
+<%end%>
+
+ <%= lint_to "Sign in", signin_path%>
