@@ -1,7 +1,10 @@
-  <h1>
-    <%= @user.name %>
-  </h1>
-
+  <h1>Welcome<%= @user.name %></h1>
+  <% if @user.events.any? %>
+	<h3>Events created</h3>
+	<% @user.events.each do |event| %>
+	 <%= event.name %>
+	<%end%>
+  <%else%>
+	h3>Events were not created</h3>
+  <%end%>
   <h3>
-    <%= @user.email %>
-  </h3>
