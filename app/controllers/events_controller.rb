@@ -22,11 +22,6 @@ class EventsController < ApplicationController
   def index
 	
 	@events = Event.all
-	# unless session[:current_user_id].nil?
-	# 	current_user = User.find(session[:current_user_id])
-	# 	@upcoming_events = current_user.events.upcoming_events(Date.today)
-	# 	@prev_events = current_user.events.previous_events(Date.today)
-	# end
 	unless session[:current_user_id].nil?
 		@current_user = User.find(session[:current_user_id])
 	end
