@@ -1,4 +1,4 @@
-  <h1>Welcome<%= @user.name %></h1>
+  <h1>Welcome <%= @user.name %></h1>
   <% if @user.events.any? %>
 	<h3>Events created</h3>
 	<% @user.events.each do |event| %>
@@ -7,4 +7,14 @@
   <%else%>
 	h3>Events were not created</h3>
   <%end%>
-  <h3>
+   <h3>
+
+ <% if @user.invites.any? %>
+	<h3>Invitations </h3>
+	<% @user.invites.each do |invite| %>
+	 <%= invite.event.description %> <br>
+	<h3>You are Invites</h3>
+	<%end%>
+  <%else%>
+	<h3>You are not Invites</h3>
+  <%end%>
