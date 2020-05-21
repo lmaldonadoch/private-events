@@ -1,5 +1,6 @@
-<h1>All the Events Sheduled</h1>
+<h1>All the Events Scheduled</h1>
 
-<%= form_for(@event) do |f| %>
- <%= f.label :description, 'Adding Description' %> <br>
- <%= f.text_field :description %> <br> <br>
+<% @events.each do |event| %>
+  <%= event.creator.name %> <br>
+  <%= event.description %> <br> <br>
+<% end %>

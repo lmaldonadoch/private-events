@@ -1,7 +1,9 @@
 class EventsController < ApplicationController
-	def new
+  
+  def new
     @event = Event.new
-	end
+  end
+  
   def create
     current_user = User.find(session[:current_user_id])
     @event = current_user.events.build(event_params)
@@ -11,11 +13,14 @@ class EventsController < ApplicationController
     else
       redirect_to root_path
     end
-	end
+  end
+  
 	def show
 	 @event = Event.find(params[:id])
-	end
-	def index
+  end
+  
+  def index
+    @events = Event.all
   end
   
   private
