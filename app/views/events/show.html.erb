@@ -1,2 +1,6 @@
 <%= @event.creator.name %>
 <h1><%= @event.description %></h1>
+
+<% @event.invites.each do |invitation| %>
+  <%= invitation.user.name %> <br>
+<% end %>
