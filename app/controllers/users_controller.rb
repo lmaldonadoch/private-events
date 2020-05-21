@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:current_user_id] = @user.id
+      redirect_to root_path
     else
       render 'new'
     end
@@ -38,6 +39,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @upcoming_events = []
+    @user.invites.each do |invite|
+      @upcoming_events << invite.event
+    end
   end
 
   private

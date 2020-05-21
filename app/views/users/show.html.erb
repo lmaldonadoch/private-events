@@ -1,21 +1,44 @@
   <h1>Welcome <%= @user.name %></h1>
   <% if @user.events.any? %>
 	<h3>Events created</h3>
-	<% @user.events.each do |event| %>
-	 <%= event.description %> <br>
+
+  <ul>
+  	<% @user.events.each do |event| %>
+      <li>
+        <%= event.description %>
+      </li>
+  </ul>
+	 
 	<%end%>
   <%else%>
-	h3>Events were not created</h3>
+	<h3>You have not created any events yet</h3>
   <%end%>
    <h3>
 
  <% if @user.invites.any? %>
 	<h3>Invitations </h3>
+
+  <h3>Past events</h3>
+  <ul>
 	<% @user.invites.each do |invite| %>
-    
-	  <%= invite.event.description %> <br>
-	  <h3>You are Invites</h3>
-	<%end%>
-  <%else%>
-	<h3>You are not Invites</h3>
+    <li>
+      <%= invite.event.description %> <br>
+    </li>
   <%end%>
+  </ul>
+
+  <h3>Upcomming events</h3>
+  <ul>
+	<% @user.invites.each do |invite| %>
+    <li>
+      <%= invite.event.description %> <br>
+    </li>
+  </ul>
+	<%end%>
+
+  <%else%>
+	<h3>You have no upcomming events</h3>
+  <%end%>
+
+  <%= link_to "Sign out", sign_out_path%><br>
+  <%= link_to "Create Event", new_event_path%> <br>

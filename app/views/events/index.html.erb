@@ -1,25 +1,29 @@
 <h1>All the Events Scheduled</h1>
 <%unless session[:current_user_id].nil? %>
 <%=@current_user.name%><br>
- <%= link_to "Create Event", new_event_path%>
+ <%= link_to "Create Event", new_event_path%> <br>
+ <%= link_to "User Profile", user_path(session[:current_user_id])%>
 <% end %>
-<%# @events.each do |event| %>
-  <%#= event.creator.name %> 
-  <%#= event.description %> 
-<%# end %>
 
 <h1>Past events</h1>
 <% @prev_events.each do |event|%>
 <%= event.creator.name %> <br>
-  <%= event.description %> <br> <br>
+  <%= event.description %> <br> 
+  <%= event.date %> <br><br>
 <% end %>
 
 <h1>Future events</h1>
 <% @upcoming_events.each do |event|%>
 <%= event.creator.name %> <br>
-  <%= event.description %> <br> <br>
+  <%= event.description %> <br> 
+  <%= event.date %> <br><br>
 <% end %>
 
- <%= link_to "Sign in", sign_in_path%>
+<%if session[:current_user_id].nil? %>
+  <%= link_to "Sign in", sign_in_path%> <br>
 
- <%= link_to "Sign out", sign_out_path%>
+  <%= link_to "Sign up", new_user_path%><br>
+
+<% else %>
+  <%= link_to "Sign out", sign_out_path%><br>
+<% end %>
