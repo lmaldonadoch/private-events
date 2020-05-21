@@ -1,12 +1,11 @@
 class UsersController < ApplicationController
-
   def new
     @users = User.all
-    if session[:current_user_id].nil?
-      @user = User.new
-    else
-      @user = User.find(session[:current_user_id])
-    end
+    @user = if session[:current_user_id].nil?
+              User.new
+            else
+              User.find(session[:current_user_id])
+            end
   end
 
   def create
@@ -25,19 +24,18 @@ class UsersController < ApplicationController
     if @user
       session[:current_user_id] = @user.id
       redirect_to root_path
-	else
-	  flash[:alert] = "User not found."
+    else
+      flash[:alert] = 'User not found.'
       @user = User.new
       render 'sign_in_form'
     end
   end
 
   def sign_out
-	reset_session
-	redirect_to root_path
-	flash[:alert] = "User Signed out Successfully"
+    reset_session
+    redirect_to root_path
+    flash[:alert] = 'User Signed out Successfully'
   end
-
 
   def show
     @user = User.find(params[:id])
