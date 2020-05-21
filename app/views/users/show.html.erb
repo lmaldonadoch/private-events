@@ -24,15 +24,16 @@
     <li>
       <%= invite.event.description %> <br>
     </li>
-  <%end%>
   </ul>
+ 
 
   <h3>Upcomming events</h3>
-  <ul>
-	<% @user.invites.each do |invite| %>
+   <ul>
+	<% @upcoming_events.each do |event| %>
     <li>
-      <%= invite.event.description %> <br>
+      <%= event.description %> <br>
     </li>
+  <%end%>
   </ul>
 	<%end%>
 

@@ -38,11 +38,12 @@ class UsersController < ApplicationController
 
 
   def show
-    @user = User.find(params[:id])
-    @upcoming_events = []
-    @user.invites.each do |invite|
-      @upcoming_events << invite.event
-    end
+	@user = User.find(params[:id])
+
+	@upcoming_events = [] 
+	@user.invites.each do |invite|
+	  @upcoming_events << invite.event
+	end
   end
 
   private
