@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  def new
+	def new
     @event = Event.new
 	end
   def create
@@ -7,12 +7,13 @@ class EventsController < ApplicationController
     @event = current_user.events.build(event_params)
     @event.date = 'Tomorrow'
     if @event.save
-      redirect_to user_path(session[:current_user_id])
+      redirect_to @event
     else
       redirect_to root_path
     end
 	end
 	def show
+	 @event = Event.find(params[:id])
 	end
 	def index
   end
