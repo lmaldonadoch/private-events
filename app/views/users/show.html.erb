@@ -12,8 +12,9 @@
  <% if @user.invites.any? %>
 	<h3>Invitations </h3>
 	<% @user.invites.each do |invite| %>
-	 <%= invite.upcoming_events.description %> <br>
-	<h3>You are Invites</h3>
+    
+	  <%= invite.event.description %> <br>
+	  <h3>You are Invites</h3>
 	<%end%>
   <%else%>
 	<h3>You are not Invites</h3>
