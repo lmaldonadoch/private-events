@@ -4,3 +4,16 @@
   <%= event.creator.name %> <br>
   <%= event.description %> <br> <br>
 <% end %>
+
+
+<h1>Past events</h1>
+<% @prev_events.each do |event|%>
+<%= event.creator.name %> <br>
+  <%= event.description %> <br> <br>
+<% end %>
+
+<h1>Future events</h1>
+<% @upcoming_events.each do |event|%>
+<%= event.creator.name %> <br>
+  <%= event.description %> <br> <br>
+<% end %>

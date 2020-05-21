@@ -15,12 +15,15 @@ class EventsController < ApplicationController
     end
   end
   
-	def show
-	 @event = Event.find(params[:id])
+  def show
+    @event = Event.find(params[:id])
   end
   
   def index
     @events = Event.all
+    current_user = User.find(session[:current_user_id])
+    @upcoming_events = current_user.events.upcoming_events(Date.today)
+    @prev_events = current_user.events.previous_events(Date.today)
   end
   
   private
