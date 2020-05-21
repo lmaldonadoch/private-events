@@ -1,40 +1,41 @@
 <h1>Welcome <%= @user.name %></h1>
 <% if @user.events.any? %>
-<h3>Events created</h3>
+<h2><u>Events created</u></h2>
 
-<ul>
   <% @user.events.each do |event| %>
-    <li>
-      <%= event.description %>
-    </li>
-</ul>
-	<%end%>
+    <p>
+     <b> <%= event.description %></b><br>
+    <u>Events Date: <%= event.date %></u><br>
+<i>Event location: <%= event.location %></i><br></p>
+  <%end%>
 
 <%else%>
 	<h3>You have not created any events yet</h3>
 <%end%>
 
 <% if @user.invites.any? %>
-	<h3>Invitations </h3>
+	<h2><u>Invitations</u> </h2>
 
   <h3>Past events</h3>
-  <ul>
+  
     <% @previous_events.each do |event| %>
-        <li>
-          <%= event.description %> <br>
-        </li>
+        <p>
+     <b> <%= event.description %></b><br>
+    <u>Events Date: <%= event.date %></u><br>
+<i>Event location: <%= event.location %></i><br></p>
       <%end%>
-  </ul>
+  
  
 
   <h3>Upcomming events</h3>
-    <ul>
+    
       <% @upcoming_events.each do |event| %>
-        <li>
-          <%= event.description %> <br>
-        </li>
+        <p>
+     <b> <%= event.description %></b><br>
+    <u>Events Date: <%= event.date %></u><br>
+<i>Event location: <%= event.location %></i><br></p>
       <%end%>
-    </ul>
+    
 
 <%else%>
 	<h3>You have no upcomming events</h3>

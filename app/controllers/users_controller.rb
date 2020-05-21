@@ -25,15 +25,17 @@ class UsersController < ApplicationController
     if @user
       session[:current_user_id] = @user.id
       redirect_to root_path
-    else
+	else
+	  flash[:alert] = "User not found."
       @user = User.new
       render 'sign_in_form'
     end
   end
 
   def sign_out
-    reset_session
-    redirect_to root_path
+	reset_session
+	redirect_to root_path
+	flash[:alert] = "User Signed out Successfully"
   end
 
 

@@ -12,8 +12,7 @@
  <%= f.label :name, 'Your Username here' %> <br>
  <%= f.text_field :name %> <br> <br>
  <%= f.label :email %> <br>
- <%= f.email_field :email%> <br><br>
- <br>
+ <%= f.email_field :email%> <br>
  <br>
  <%= f.submit %>
  
@@ -21,6 +20,5 @@
  
 <%end%>
 
- <%= link_to "Sign in", sign_in_path%>
-
- <%= link_to "Home", root_path%>
+ <%= link_to "Home", root_path%> <br>
+<%= link_to "Sign in", sign_in_path%>

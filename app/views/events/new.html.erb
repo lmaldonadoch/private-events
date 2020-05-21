@@ -2,8 +2,11 @@
 <%= form_for(@event) do |f| %>
  <%= f.label :description, 'Adding Description' %> <br>
  <%= f.text_field :description %> <br> <br>
- <br>
- <br>
+ <%= f.label :date, 'Adding Date for Events' %> <br>
+ <%= f.text_field :date, placeholder: 'YYYY/MM/DD' %> <br> <br>
+  <%= f.label :location, 'Location for Events' %> <br>
+ <%= f.text_field :location, placeholder: 'Eg. USA' %> <br> 
+ <br> 
  <%= f.submit %>
  
  <p class="flash"><%= flash.notice %></p>

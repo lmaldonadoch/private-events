@@ -7,7 +7,7 @@ class EventsController < ApplicationController
   def create
     current_user = User.find(session[:current_user_id])
     @event = current_user.events.build(event_params)
-    @event.date = 'Tomorrow'
+    # @event.date = 'Tomorrow'
     if @event.save
       redirect_to @event
     else
@@ -32,6 +32,6 @@ class EventsController < ApplicationController
   private
   
   def event_params
-    params.require(:event).permit(:description)
+    params.require(:event).permit(:description, :location, :date)
   end
 end
