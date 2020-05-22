@@ -1,21 +1,16 @@
 require 'rails_helper'
-RSpec.feature "User", :type =>
-:feature do
-    scenario "Creates a new User" do
-        begin
-            visit "http://localhost:3000/users/new"
-          
-            within find("#new_user") do
-                 fill_in "name", :with =>          
-                 "RSpec"
-                 fill_in "user_email", :with =>
-                 "rspec@something.com"
-                 click_button "commit"
-            end
-        rescue StandardError => e
-            puts "#{e.message}"
-        end
+RSpec.feature 'User', type: :feature do
+  scenario 'Creates a new User' do
+    visit 'http://localhost:3000/users/new'
+
+    within find('#new_user') do
+      fill_in 'name', with: 'RSpec'
+      fill_in 'user_email', with: 'rspec@something.com'
+      click_button 'commit'
     end
+  rescue StandardError => e
+    puts e.message.to_s
+  end
 end
 
 RSpec.describe User, type: :model do
@@ -32,7 +27,7 @@ RSpec.describe User, type: :model do
       user.name = 'test'
       user.valid?
       expect(user.errors[:name]).to_not include("can't be blank")
-    end    
+    end
   end
 
   describe '#email' do
@@ -48,7 +43,7 @@ RSpec.describe User, type: :model do
       user.email = 'test'
       user.valid?
       expect(user.errors[:email]).to_not include("can't be blank")
-    end    
+    end
   end
 end
 
@@ -66,7 +61,7 @@ RSpec.describe Event, type: :model do
       event.description = 'test'
       event.valid?
       expect(event.errors[:description]).to_not include("can't be blank")
-    end    
+    end
   end
 
   describe '#date' do
@@ -82,6 +77,6 @@ RSpec.describe Event, type: :model do
       event.date = '2020/05/20'
       event.valid?
       expect(event.errors[:date]).to_not include("can't be blank")
-    end    
+    end
   end
 end
