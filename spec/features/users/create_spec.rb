@@ -4,7 +4,6 @@ RSpec.feature "User", :type =>
     scenario "Creates a new User" do
         begin
             visit "http://localhost:3000/users/new"
-            # visit "/"
           
             within find("#new_user") do
                  fill_in "name", :with =>          
