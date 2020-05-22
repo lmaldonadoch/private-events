@@ -8,6 +8,10 @@ In this project, we were able to apply all the previously acquired knowledge on 
 
 ![screenshot1](app/assets/images/screenshot03.png)
 
+Additional to working with advanced Active Records, we implemented testing using Capibara and RSpec. We included testing for going to the website and making sure the form and fields were there and for the presence of mandatory fields for each class.
+
+![screenshot4](app/assets/images/screenshot04.png)
+
 # Requirements
 
 - Ruby > 2.6.5
@@ -51,6 +55,14 @@ $ rails db:migrate
 - Sign in with the username luis_example to be able see in the profile page all the events he is invited to.
 - Sign in with user Luis to be able to see many created events.
 
+## Testing
+
+- To run the tests, go to the command line and type:
+
+```
+rspec spec/features/users/create_spec.rb
+```
+
 ## Built With
 
 - Ruby
@@ -83,4 +95,4 @@ Feel free to check the [issues page](https://github.com/shubham14p3/micro_reddit
 
 ## Show your support
 
-Give a ⭐️ if you like this project!
+Give a ⭐️ if you like this project!!
