@@ -37,10 +37,16 @@ Install the needed gems:
 $ bundle install
 ```
 
-Finally, migrate the database:
+Next, migrate the database:
 
 ```
 $ rails db:migrate
+```
+
+Finally, run the app in a local server:
+
+```
+$ rails server
 ```
 
 # Instructions
