@@ -1,0 +1,30 @@
+<h1>All Events:</h1>
+<p class="flash"><%= flash.alert %></p>
+<%unless session[:current_user_id].nil? %>
+<h3>Welcome <%=@current_user.name%></h3>
+ <%= link_to "Create Event", new_event_path%> <br>
+ <%= link_to "User Profile", user_path(session[:current_user_id])%>
+<% end %>
+
+<h1>Past events</h1>
+<% @prev_events.each do |event|%>
+<u><%= event.creator.name %></u> <br>
+ <b> <%= event.description %></b> <br> 
+  <%= event.date %> <br><br>
+<% end %>
+
+<h1>Future events</h1>
+<% @upcoming_events.each do |event|%>
+<u><%= event.creator.name %></u> <br>
+  <b><%= event.description %></b> <br> 
+  <%= event.date %> <br><br>
+<% end %>
+
+<%if session[:current_user_id].nil? %>
+  <%= link_to "Sign in", sign_in_path%> <br>
+
+  <%= link_to "Sign up", new_user_path%><br>
+
+<% else %>
+  <%= link_to "Sign out", sign_out_path%><br>
+<% end %>

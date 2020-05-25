@@ -1,0 +1,24 @@
+<h1>Create a new user</h1>
+
+<%= @users.find(session[:current_user_id]).name unless session[:current_user_id].nil? %>
+
+<%= form_for(@user) do |f| %>
+ 
+ <ul>
+ <% @user.errors.full_messages.each do |error| %>
+   <li><%= error %></li>
+ <% end %>
+ </ul>
+ <%= f.label :name, 'Your Username here' %> <br>
+ <%= f.text_field :name %> <br> <br>
+ <%= f.label :email %> <br>
+ <%= f.email_field :email%> <br>
+ <br>
+ <%= f.submit %>
+ 
+ <p class="flash"><%= flash.notice %></p>
+ 
+<%end%>
+
+ <%= link_to "Home", root_path%> <br>
+<%= link_to "Sign in", sign_in_path%>

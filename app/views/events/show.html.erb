@@ -1,0 +1,11 @@
+<p><h2>Hi @ <%= @event.creator.name %> <br></h2>
+<p>You have created the following events</p>
+<h2><%= @event.description %></h2>
+
+<p><h3>Events Date: <%= @event.date %><br>
+Event location: <%= @event.location %><br></h3></p>
+<% @event.invites.each do |invitation| %>
+  <%= invitation.user.name %> <br>
+<% end %>
+
+ <%= link_to "Home", root_path%>
